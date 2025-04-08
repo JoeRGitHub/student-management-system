@@ -73,19 +73,24 @@ def add_student():
 
 
 def calculate_average(ave_score):
-    list = []
-    for i in ave_score:
-        list.append(i["score"])
-    print("\nCalculate average score all students: ", statistics.mean(list))
+    try:
+        list = []
+        for i in ave_score:
+            list.append(i["score"])
+        print("\nCalculate average score all students: ", statistics.mean(list))
+    except statistics.StatisticsError:
+        print("No students available.")
 
 
 def highest_scorer(highest_score):
-    score = 0
-    for i in highest_score:
-        if i["score"] > score:
-            i["score"] == score
-    print("\nHighest Scorer:", i["name"], i["score"])
-
+    try:
+        score = 0
+        for i in highest_score:
+            if i["score"] > score:
+                i["score"] == score
+        print("\nHighest Scorer:", i["name"], i["score"])
+    except UnboundLocalError:
+        print("No students available.")
 # ------------------------------ Table view ------------------------------- #
 
 
@@ -93,13 +98,15 @@ def view_students():
     # header = list(students[0].keys())
     # for i in header:
     #     y = i.capitalize()
-    header = list(students[0].keys())
-    rows = []
-    for i in students:
-        rows.append(i.values())
-        # rows = [x.values() for x in students]
-    print(tabulate.tabulate(rows, header))
-
+    try:
+        header = list(students[0].keys())
+        rows = []
+        for i in students:
+            rows.append(i.values())
+            # rows = [x.values() for x in students]
+        print(tabulate.tabulate(rows, header))
+    except IndexError:
+        print("No students available.")
 # ------------------------------ Main function ------------------------------- #
 
 
@@ -107,7 +114,7 @@ def main():
     show_menu()
 
 
-view_students()
+highest_scorer(students)
 add_student()
 view_students()
 calculate_average(students)
