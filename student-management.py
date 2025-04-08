@@ -1,11 +1,12 @@
 
 import re
-import os
+import tabulate
+import statistics
 
 students = []
 
 
-# ------------------------------ Main Menu ------------------------------- #
+# ------------------------------ Main menu ------------------------------- #
 def show_menu():
     print("""
     Welcome to the Student Management System!
@@ -25,7 +26,7 @@ def show_menu():
             break
 
 
-# ------------------------------ Adding students ------------------------------- #
+# ------------------------------ Validatetion  ------------------------------- #
 def validate_name_field(prompt):
     while True:
         name = input(prompt)
@@ -46,6 +47,8 @@ def validate_score(prompt):
         except ValueError:
             print("Enter a valid integer score: ")
 
+# ------------------------------ Adding students ------------------------------- #
+
 
 def add_student():
     while True:
@@ -62,10 +65,29 @@ def add_student():
         )
         print(students)
 
-        another = input("Add another student (y/n)? ")
-        print(another)
+        another = input("Add another student (y/n)? \n")
         if another != "y":
             break
+
+# ------------------------------ Calculatetion ------------------------------- #
+
+
+def calculate_average(ave_score):
+    list = []
+    for i in ave_score:
+        list.append(i["score"])
+    print("\nCalculate average score all students: ", statistics.mean(list))
+
+# ------------------------------ Table view ------------------------------- #
+
+
+def view_students():
+    header = students[0].keys()
+    rows = []
+    for i in students:
+        rows.append(i.values())
+        # rows = [x.values() for x in students]
+    print(tabulate.tabulate(rows, header))
 
 # ------------------------------ Main function ------------------------------- #
 
@@ -74,26 +96,6 @@ def main():
     show_menu()
 
 
-# main()
 add_student()
-
-# students.update({student_name: student_score})
-
-# def update_cart(item_to_cart, quantity_to_cart):
-#     cart_items.update({item_to_cart: quantity_to_cart})
-#     product_prices.update({item_to_cart: create_price()})
-#     print(product_prices)
-#     print(cart_items)
-
-# # ------------------------- Calculation ------------------------------- #
-
-
-# def calculate_cart_total(cart_items, product_prices):
-#     """
-#     Calculates the total price of all items in the cart.
-
-#     """
-#     total = 0
-#     for product, quantity in cart_items.items():
-#         total += quantity * product_prices.get(product, 0)
-#     return round(total, 2)
+view_students()
+calculate_average(students)
