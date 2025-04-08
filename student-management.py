@@ -78,11 +78,22 @@ def calculate_average(ave_score):
         list.append(i["score"])
     print("\nCalculate average score all students: ", statistics.mean(list))
 
+
+def highest_scorer(highest_score):
+    score = 0
+    for i in highest_score:
+        if i["score"] > score:
+            i["score"] == score
+    print("\nHighest Scorer:", i["name"], i["score"])
+
 # ------------------------------ Table view ------------------------------- #
 
 
 def view_students():
-    header = students[0].keys()
+    # header = list(students[0].keys())
+    # for i in header:
+    #     y = i.capitalize()
+    header = list(students[0].keys())
     rows = []
     for i in students:
         rows.append(i.values())
@@ -96,6 +107,8 @@ def main():
     show_menu()
 
 
+view_students()
 add_student()
 view_students()
 calculate_average(students)
+highest_scorer(students)
