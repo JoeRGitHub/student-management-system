@@ -107,7 +107,6 @@ def main():
     show_menu()
 
 
-view_students()
 add_student()
 view_students()
 calculate_average(students)
