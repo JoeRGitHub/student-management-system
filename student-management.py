@@ -124,9 +124,4 @@ def main():
     show_menu()
 
 
-# highest_scorer(students)
-# add_student()
-# view_students()
-# calculate_average(students)
-# highest_scorer(students)
 main()
