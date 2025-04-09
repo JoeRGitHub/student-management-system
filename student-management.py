@@ -8,7 +8,7 @@ students = []
 # ------------------------------ Main menu ------------------------------- #
 
 
-def show_menu():
+def menu():
 
     while True:
         print("""
@@ -120,8 +120,5 @@ def view_students():
 # ------------------------------ Main function ------------------------------- #
 
 
-def main():
-    show_menu()
-
-
-main()
+if __name__ == "__main__":
+    menu()
