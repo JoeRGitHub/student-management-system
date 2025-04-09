@@ -8,7 +8,7 @@ students = []
 # ------------------------------ Main menu ------------------------------- #
 
 
-def show_menu():
+def menu():
 
     while True:
         print("""
@@ -119,21 +119,6 @@ def view_students():
 
 # ------------------------------ Main function ------------------------------- #
 
+if __name__ == "__main__":
+    menu()
 
-def main():
-    show_menu()
-
-
-<<<<<<< HEAD
-add_student()
-view_students()
-calculate_average(students)
-highest_scorer(students)
-=======
-# highest_scorer(students)
-# add_student()
-# view_students()
-# calculate_average(students)
-# highest_scorer(students)
-main()
->>>>>>> dev
