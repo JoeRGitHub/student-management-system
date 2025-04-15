@@ -1,3 +1,5 @@
+https://github.com/dor-amar/python-devops-course/blob/main/modules/python-basics/in-module-labs/lab_03.md
+
 ### **Project Title**: **Student Management System**
 
 ---
@@ -22,16 +24,11 @@ The Student Management System is a simple console-based application where users 
 
 1. Create a file named `student_management.py`.
 2. Write a function named `show_menu()` to display the following options to the user:
-    - 
-        1. Add a Student
-    - 
-        1. View All Students
-    - 
-        1. Calculate Average Score
-    - 
-        1. Find the Highest Scorer
-    - 
-        1. Exit
+   - 1. Add a Student
+   - 1. View All Students
+   - 1. Calculate Average Score
+   - 1. Find the Highest Scorer
+   - 1. Exit
 3. Create a `main()` function that repeatedly calls `show_menu()` and asks the user to choose an option.
 4. Use a `while` loop to allow the program to run until the user selects **Exit**.
 
@@ -40,18 +37,16 @@ The Student Management System is a simple console-based application where users 
 ### **Phase 2: Adding Students**
 
 1. Write a function named `add_student()` to:
-    - Take the student's name and score as inputs from the user.
-    - Store them in a global list of dictionaries (e.g., `students = []`).
-    - Example structure of `students`:
-        
-        ```python
-        students = [
-            {"name": "Dor", "score": 85},
-            {"name": "Jessica", "score": 90},
-        ]
-        
-        ```
-        
+   - Take the student's name and score as inputs from the user.
+   - Store them in a global list of dictionaries (e.g., `students = []`).
+   - Example structure of `students`:
+     ```python
+     students = [
+         {"name": "Dor", "score": 85},
+         {"name": "Jessica", "score": 90},
+     ]
+
+     ```
 2. Add validation to ensure the score is a number between 0 and 100.
 
 ---
@@ -59,25 +54,24 @@ The Student Management System is a simple console-based application where users 
 ### **Phase 3: Viewing All Students**
 
 1. Write a function named `view_students()` to:
-    - Print all students in a formatted table.
-    - If the list is empty, print a message saying "No students available."
+   - Print all students in a formatted table.
+   - If the list is empty, print a message saying "No students available."
+
 - **Example Output**:
-    
-    ```
-    Name    | Score
-    ----------------
-    Dor         | 85
-    Jessica     | 90
-    
-    ```
-    
+  ```
+  Name    | Score
+  ----------------
+  Dor         | 85
+  Jessica     | 90
+
+  ```
 
 ---
 
 ### **Phase 4: Calculate Average Score**
 
 1. Write a function named `calculate_average()` to:
-    - Calculate and return the average score of all students.
+   - Calculate and return the average score of all students.
 2. Call this function when the user selects the **Calculate Average Score** option and display the result.
 3. If no students exist, print an appropriate message.
 
@@ -86,30 +80,29 @@ The Student Management System is a simple console-based application where users 
 ### **Phase 5: Find the Highest Scorer**
 
 1. Write a function named `find_highest_scorer()` to:
-    - Find the student with the highest score.
-    - Return their name and score.
+   - Find the student with the highest score.
+   - Return their name and score.
 2. Display the result when the user selects this option.
 
 ---
 
-### **Phase 6: Optimize with Lambda Functions (Bonus)** 
+### **Phase 6: Optimize with Lambda Functions (Bonus)**
 
 1. Use a **lambda function** to sort the `students` list by score in descending order when finding the highest scorer.
 2. Example:
-    
-    ```python
-    highest = max(students, key=lambda x: x["score"])
-    
-    ```
-    
+
+   ```python
+   highest = max(students, key=lambda x: x["score"])
+
+   ```
 
 ---
 
 ### **Phase 7: Add Error Handling**
 
 1. Ensure the program doesn't crash due to invalid input by:
-    - Using `try-except` blocks for input conversion.
-    - Handling edge cases (e.g., empty student list when calculating averages).
+   - Using `try-except` blocks for input conversion.
+   - Handling edge cases (e.g., empty student list when calculating averages).
 
 ---
 

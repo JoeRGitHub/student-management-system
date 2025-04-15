@@ -13,10 +13,10 @@ def menu():
     while True:
         print("""
         Welcome to the Student Management System!
-        1. Add a Student.
-        2. View All Students.
-        3. Calculate Average Score.
-        4. Find the Highest Scorer.
+        1. Add a student.
+        2. View all students.
+        3. Calculate average score.
+        4. Find the highest scorer.
         5. Exit.
         """)
         user_choice = input("Choice form the meny? ")
@@ -29,7 +29,7 @@ def menu():
         elif user_choice == "4":
             highest_scorer(students)
         elif user_choice == "5":
-            print("nStudent Management System Closed")
+            print("\nStudent Management System closed")
             break
         else:
             print("\nUnrecognized character. Try again.")
@@ -62,6 +62,7 @@ def validate_score(prompt):
 
 
 def add_student():
+    update_name = 0
     while True:
         student_name = validate_name_field("Add student full name: ")
         student_field = validate_name_field("Add student field: ")
@@ -76,6 +77,9 @@ def add_student():
         )
         print(students)
 
+        print(
+            f"Student {students[update_name]['name']} was added successfully!")
+        update_name += 1
         another = input("Add another student (y/n)? \n")
         if another != "y":
             break
@@ -88,7 +92,8 @@ def calculate_average(ave_score):
         list = []
         for i in ave_score:
             list.append(i["score"])
-        print("\nCalculate average score all students: ", statistics.mean(list))
+        print("\nCalculate average score all students: ",
+              round(statistics.mean(list), 2))
     except statistics.StatisticsError:
         print("\nNo students available.")
 
@@ -119,6 +124,6 @@ def view_students():
 
 # ------------------------------ Main function ------------------------------- #
 
+
 if __name__ == "__main__":
     menu()
-
