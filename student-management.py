@@ -9,15 +9,17 @@ students = []
 
 
 def menu():
-
+    print("\nWelcome to the Student Management System!")
     while True:
         print("""
-        Welcome to the Student Management System!
+        What would you like to do?
         1. Add a student.
         2. View all students.
         3. Calculate average score.
         4. Find the highest scorer.
-        5. Exit.
+        5. Search for a student name.
+        6. Delete student from list.
+        7. Exit.
         """)
         user_choice = input("Choice form the meny? ")
         if user_choice == "1":
@@ -29,10 +31,12 @@ def menu():
         elif user_choice == "4":
             highest_scorer(students)
         elif user_choice == "5":
+            search()
+        elif user_choice == "6":
+            remove_std()
+        elif user_choice == "7":
             print("\nStudent Management System closed")
             break
-        elif user_choice == "6":
-            search()
         else:
             print("\nUnrecognized character. Try again.")
 
@@ -126,6 +130,10 @@ def view_students():
 
 # ------------------------------ Search | Delete ----------------------------- #
 
+# Add an option to check if there are any students to search for
+# def pre_search_del():
+#     if students != []:
+
 
 def search():
     # print(students)
@@ -142,6 +150,25 @@ def search():
                 f'\nStudent info {student.get("name")} - \nField: {student.get("field")}\nScore: {student.get("score")}')
             found = True
 
+    if not found:
+        print("\nNo students available.")
+
+
+def remove_std():
+    found = False
+    remove_student = input("Name: ").lower()
+    for i, dic in enumerate(students):
+        if dic['name'].lower() == remove_student:
+            print(dic)
+            print(i)
+            get_approval = input(
+                f"Are you sure you want to delete the record of {dic['name']} (y/n)?\n")
+            if get_approval == "y":
+                students.pop(i)
+                print(f"\nRecord of {dic['name']} was deleted")
+            else:
+                print(f"\nRecord of {dic['name']} was not deleted")
+            found = True
     if not found:
         print("\nNo students available.")
 
