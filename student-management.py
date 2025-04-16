@@ -123,7 +123,6 @@ def view_students():
         rows = []
         for i in students:
             rows.append(i.values())
-            # rows = [x.values() for x in students]
         print(f"\n{tabulate.tabulate(rows, header)}")
     except IndexError:
         print("\nNo students available.")
@@ -136,20 +135,13 @@ def view_students():
 
 
 def search():
-    # print(students)
-
     search_student = input("Enter a student name to search: ").lower()
     found = False
     for student in students:
-        # print(f'search_student: {search_student}')
-        # print(student.get("name"))
-
-        # Used in to find part of string in string
         if search_student in student.get("name").lower():
             print(
                 f'\nStudent info {student.get("name")} - \nField: {student.get("field")}\nScore: {student.get("score")}')
             found = True
-
     if not found:
         print("\nNo students available.")
 
