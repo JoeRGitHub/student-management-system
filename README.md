@@ -37,9 +37,11 @@ The Student Management System is a simple console-based application where users 
 ### **Phase 2: Adding Students**
 
 1. Write a function named `add_student()` to:
+
    - Take the student's name and score as inputs from the user.
    - Store them in a global list of dictionaries (e.g., `students = []`).
    - Example structure of `students`:
+
      ```python
      students = [
          {"name": "Dor", "score": 85},
@@ -47,6 +49,7 @@ The Student Management System is a simple console-based application where users 
      ]
 
      ```
+
 2. Add validation to ensure the score is a number between 0 and 100.
 
 ---
@@ -58,6 +61,7 @@ The Student Management System is a simple console-based application where users 
    - If the list is empty, print a message saying "No students available."
 
 - **Example Output**:
+
   ```
   Name    | Score
   ----------------
@@ -151,7 +155,7 @@ Student added successfully!
 5. Exit
 Enter your choice: 2
 
-Name    | Score
+Name    |  Score
 ----------------
 Dor   | 85
 
