@@ -64,7 +64,7 @@ def validate_score(prompt):
         except ValueError:
             print("Enter a valid integer score: ")
 
-# ------------------------------ Adding students ------------------------------- #
+# ------------------------------ Adding Students ------------------------------- #
 
 
 def add_student():
